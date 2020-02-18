@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginRegisterForm from './LoginRegisterForm'
+import SearchContainer from './SearchContainer'
 
 export default class App extends Component {
   constructor(props) {
@@ -14,7 +15,13 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <LoginRegisterForm />
+        {
+          this.state.LoggedIn
+          ?
+          <SearchContainer />
+          :
+          <LoginRegisterForm />
+         }
       </div>
       );
   }
