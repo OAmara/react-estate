@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import LoginRegisterForm from './LoginRegisterForm'
 
-function App() {
-  return (
-    <div className="App">
-      <LoginRegisterForm />
-    </div>
-    );
-}
+export default class App extends Component {
+  constructor(props) {
+    super(props)
 
-export default App;
+    this.state = {
+      loggedIn: false,
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <LoginRegisterForm />
+      </div>
+      );
+  }
+}
