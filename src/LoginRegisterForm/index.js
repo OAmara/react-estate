@@ -11,33 +11,53 @@ export default class LoginRegisterForm extends Component {
 		this.state = {
 			loggedInUser: {
 			},
+			registeredUser: {
+			},
 		}
 	}
 
-	handleChange = (e) => {
+	handleLoginChange = (e) => {
+		this.setState({
+			loggedInUser: {
+				...this.state.loggedInUser,
+				[e.target.name]: e.target.value
+			}
+		})	
+	}
+
+	handleRegisterChange = (e) => {
     	this.setState({
-    		loggedInUser: {
-    			...this.state.loggedInUser,
+    		registeredUser: {
+    			...this.state.registeredUser,
     			[e.target.name]: e.target.value
     		}
     	})
   	}
 
   	// seperation of concerns between from submit and fetch call
-  	handleSubmit = (e) => {
+  	handleRegisterSubmit = (e) => {
   		e.preventDefault()
-  		this.loginRegister()	
+  		this.register()	
   	}
 
-  	loginRegister = () => {
-  		console.log('hit loginRegister in loginRegisterForm');
+  	handleLoginSubmit = (e) => {
+  		e.preventDefault()
+  		this.login()	
+  	}
+
+  	register = () => {
+  		console.log('hit register in LoginRegisterForm, this will connect to register fetch in App.js');
+  	}
+
+  	login = () => {
+  		console.log('hit login in LoginRegisterForm, this will connect to login fetch in App.js');	
   	}
 
 	render() {
 		return(
 			<React.Fragment>
 				<div>
-					<Form className="Register" onSubmit={this.handleSubmit}>
+					<Form className="Register" onSubmit={this.handleLoginSubmit}>
 						<Form.Group widths='equal'>
 							<Form.Field>
 								<Label>Email:</Label>
@@ -47,18 +67,7 @@ export default class LoginRegisterForm extends Component {
 									name="email"
 									placeholder='Enter Email'
 									value={this.state.email}
-									onChange={this.handleChange}
-								/>
-							</Form.Field>
-							<Form.Field>
-								<Label>Username:</Label>
-								<Input
-									required
-									type="text"
-									name="username"
-									placeholder='Enter Username'
-									value={this.state.username}
-									onChange={this.handleChange}
+									onChange={this.handleLoginChange}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -69,7 +78,45 @@ export default class LoginRegisterForm extends Component {
 									name="password"
 									placeholder='Enter Password'
 									value={this.state.password}
-									onChange={this.handleChange}
+									onChange={this.handleLoginChange}
+								/>
+							</Form.Field>
+						</Form.Group>
+						<Button type="Submit">Login</Button>
+					</Form>
+					<Form className="Register" onSubmit={this.handleRegisterSubmit}>
+						<Form.Group widths='equal'>
+							<Form.Field>
+								<Label>Email:</Label>
+								<Input
+									required
+									type="email"
+									name="email"
+									placeholder='Enter Email'
+									value={this.state.email}
+									onChange={this.handleRegisterChange}
+								/>
+							</Form.Field>
+							<Form.Field>
+								<Label>Username:</Label>
+								<Input
+									required
+									type="text"
+									name="username"
+									placeholder='Enter Username'
+									value={this.state.username}
+									onChange={this.handleRegisterChange}
+								/>
+							</Form.Field>
+							<Form.Field>
+								<Label>Password:</Label>
+								<Input
+									required
+									type="password"
+									name="password"
+									placeholder='Enter Password'
+									value={this.state.password}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 						</Form.Group>
@@ -82,7 +129,7 @@ export default class LoginRegisterForm extends Component {
 									name="firstname"
 									placeholder='Enter First Name'
 									value={this.state.firstname}
-									onChange={this.handleChange}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -93,7 +140,7 @@ export default class LoginRegisterForm extends Component {
 									name="lastname"
 									placeholder='Enter Last Name'
 									value={this.state.lastname}
-									onChange={this.handleChange}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -103,7 +150,7 @@ export default class LoginRegisterForm extends Component {
 									name="hometown"
 									placeholder='Enter Hometown'
 									value={this.state.hometown}
-									onChange={this.handleChange}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 						</Form.Group>
@@ -117,7 +164,7 @@ export default class LoginRegisterForm extends Component {
 									name="secretquestion"
 									placeholder='Create Recovery Question'
 									value={this.state.secretquestion}
-									onChange={this.handleChange}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -128,7 +175,7 @@ export default class LoginRegisterForm extends Component {
 									name="secretanswer"
 									placeholder='Create Recovery Answer'
 									value={this.state.secretanswer}
-									onChange={this.handleChange}
+									onChange={this.handleRegisterChange}
 								/>
 							</Form.Field>
 						</Form.Group>
@@ -136,7 +183,7 @@ export default class LoginRegisterForm extends Component {
 							label='I agree to, in there lack of, the terms and conditions'
 							required
 						/>
-					<Button type="Submit">Submit</Button>
+					<Button type="Submit">Register</Button>
 					</Form>
 				</div>
 			</React.Fragment>
