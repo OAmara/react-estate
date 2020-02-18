@@ -23,6 +23,10 @@ export default class App extends Component {
       // fetch
   }
 
+  login = async () => {
+      console.log('login function in App.js');
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,6 +36,7 @@ export default class App extends Component {
           <SearchContainer />
           :
           <LoginRegisterForm 
+            login={this.login}
             register={this.register}
           />
          }

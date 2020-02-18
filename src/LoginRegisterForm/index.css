@@ -1,6 +1,11 @@
+.Login {
+	border: 0.5px solid grey;
+	background-color: rgba(224, 255, 255, 0.7);
+}
+
 .Register {
-	border: 1px solid grey;
-	background-color: rgba(224, 255, 255, 0.8);
+	border: 1px solid lightgrey;
+	background-color: rgba(224, 255, 255, 0.4);
 	width: 90%;
-	margin-top: 30%;
+	margin-top: 24%;
 }
