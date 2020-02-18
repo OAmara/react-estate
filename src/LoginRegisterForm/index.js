@@ -16,15 +16,6 @@ export default class LoginRegisterForm extends Component {
 		}
 	}
 
-	handleLoginChange = (e) => {
-		this.setState({
-			loggedInUser: {
-				...this.state.loggedInUser,
-				[e.target.name]: e.target.value
-			}
-		})	
-	}
-
 	handleRegisterChange = (e) => {
     	this.setState({
     		registeredUser: {
@@ -34,7 +25,16 @@ export default class LoginRegisterForm extends Component {
     	})
   	}
 
-  	// seperation of concerns between from submit and fetch call
+	handleLoginChange = (e) => {
+		this.setState({
+			loggedInUser: {
+				...this.state.loggedInUser,
+				[e.target.name]: e.target.value
+			}
+		})	
+	}
+
+  	// seperation of concerns between form submit and fetch call
   	handleRegisterSubmit = (e) => {
   		e.preventDefault()
   		this.register()	
@@ -46,8 +46,7 @@ export default class LoginRegisterForm extends Component {
   	}
 
   	register = () => {
-  		console.log('hit register in LoginRegisterForm, this will connect to register fetch in App.js');
-  		this.props.register()
+  		this.props.register(this.state.registeredUser)
   	}
 
   	login = () => {

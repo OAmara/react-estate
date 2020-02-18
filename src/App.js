@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 
   register = async (registerFormInfo) => {
-    const apiUrl = process.env.FLASK_API_URL + '/api/v1.0/users/register/'
+    const apiUrl = process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/users/register'
 
     try {
       const registerResponse = await fetch(apiUrl, {
@@ -27,17 +27,14 @@ export default class App extends Component {
           'Content-Type': 'application/json'
         }
       })
-      console.log('registerResponse: ', registerResponse);
+
       const registerJson = await registerResponse.json()
-      console.log('registerJson: ', registerJson);
-      console.log('registerJson.data: ', registerJson.data);
+
       if(registerResponse.status === 201) {
         this.setState({
           loggedIn: true,
           // for UI purposes, such as a greeting
-          loggedInUser: {
-            ...this.state.registerJson.data
-          }
+          loggedInUser: registerJson.data
         })
       }
     } catch(err) {
@@ -52,6 +49,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state.loggedInUser);
     return (
       <div className="App">
         {
