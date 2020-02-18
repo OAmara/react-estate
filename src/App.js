@@ -9,7 +9,18 @@ export default class App extends Component {
 
     this.state = {
       loggedIn: false,
+      loggedInUser: {
+        email: '',
+        username: '',
+        firstname: '',
+        lastname: '',
+      },
     }
+  }
+
+  register = async () => {
+      console.log('register function in App.js');
+      // fetch
   }
 
   render() {
@@ -20,7 +31,9 @@ export default class App extends Component {
           ?
           <SearchContainer />
           :
-          <LoginRegisterForm />
+          <LoginRegisterForm 
+            register={this.register}
+          />
          }
       </div>
       );
