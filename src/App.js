@@ -117,7 +117,7 @@ export default class App extends Component {
           <SearchContainer 
             mainLogo={this.state.mainLogo}
             logout={this.logout}
-            />
+          />
           :
           <LoginRegisterForm 
             mainLogo={this.state.mainLogo}

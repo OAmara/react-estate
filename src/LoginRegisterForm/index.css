@@ -1,11 +1,12 @@
 .Login {
 	border: 0.4px dotted maroon;
 	background-color: rgba(19, 89, 153, 0.5);
+	/*width: 99%;*/
 }
 
 .Register {
 	border: 0.3px solid maroon;
 	background-color: rgba(19, 89, 153, 0.45);
 	width: 90%;
-	margin-top: 15%;
+	/*margin-top: 4%;*/
 }
