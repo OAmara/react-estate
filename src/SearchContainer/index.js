@@ -59,9 +59,8 @@ export default class SearchContainer extends Component {
 	}
 
 	deleteSearch = async (id) => {
-		console.log(id);
 		try {
-			const deleteSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches' + id, {
+			const deleteSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/' + id, {
 				credentials: 'include',
 				method: 'DELETE',
 			})
@@ -70,7 +69,7 @@ export default class SearchContainer extends Component {
 			if(deleteSearchJson.status === 200) {
 				this.setState({
 					// if only JS had a pop function like python!
-					searches: this.state.searches.filter(search => id !== id)
+					searches: this.state.searches.filter(search => search.id !== id)
 				})
 			} else {
 				throw new Error('Could not Delete Account')

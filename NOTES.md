@@ -11,6 +11,8 @@
 **	Start utilizing status code from fetch results to change css through props between containers. i.e. how logout is currently utilizing same behavior to change message displayed and css properties in login.
 ^^^^^^^^^ Instead of utilizing status codes, maybe throw new Errors like in deleteSearch in SearchContainer to customize errors while also having a place for this logic to be set.
 
+** Nice Header! Now where is my FOOTER + tm + C + author + abouts?? <-- all of these should be accessible in login component. All, but the header.
+
 
 
 <!-- semantic-ui color options: 
