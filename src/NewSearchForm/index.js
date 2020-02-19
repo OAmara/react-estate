@@ -22,9 +22,20 @@ export default class NewSearchForm extends Component {
 		})	
 	}
 
+	handleSubmit = (e) => {
+		e.preventDefault()	
+		console.log('handling Submit');
+		this.createNewSearch()
+	}
+
+	createNewSearch = () => {
+		console.log('createNewSearch triggered! Insert your props');
+		console.log(this.state.newSearch);
+	}
+
 	render() {
 		return(
-			<Form className="NewFormModal" onSubmit={null}>
+			<Form className="NewFormModal" onSubmit={this.handleSubmit}>
 				<Form.Group widths='equal'>
 					<Form.Input
 						size={'large'}
