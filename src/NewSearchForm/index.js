@@ -25,12 +25,16 @@ export default class NewSearchForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()	
 		console.log('handling Submit');
-		this.createNewSearch()
+		this.liftNewSearch()
 	}
 
-	createNewSearch = () => {
+	liftNewSearch = () => {
 		console.log('createNewSearch triggered! Insert your props');
 		console.log(this.state.newSearch);
+		this.setState({
+			newSearch: {
+			}
+		})
 	}
 
 	render() {

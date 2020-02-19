@@ -34,6 +34,30 @@ export default class SearchContainer extends Component {
 		}
 	}
 
+	createSearch = async (searchToAdd) => {
+		try {
+			const createSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/', {
+				credentials: 'include',
+				method: 'POST',
+				// converts object to JSON
+				body: JSON.stringify(searchToAdd), 
+				headers: {
+					'Content-Type': 'application/json'
+				},
+			})
+			const createSearchJson = await createSearchResponse.json()
+
+			if(createAccountResponse.status === 201) {
+				this.setState({
+					// spread operator to minimize fetch calls and insert data into existing search array
+					searches: [...this.state.searches, createSearchJson.data]
+				})
+			}
+		} catch(err) {
+			console.error(err)
+		}
+	}
+
 	render() {
 		return(
 			<React.Fragment>
