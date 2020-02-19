@@ -19,7 +19,7 @@ export default function SearchList(props) {
 					<h4>Price Range: {lowerprice} - {upperprice}</h4>
 					<h4>Miles From Home: {client.hometown}</h4>
 					<h6>Last Edited: {created_on}</h6>
-					<Button size={'mini'} inverted color={'red'} onClick={null}>Delete</Button>
+					<Button size={'mini'} inverted color={'red'} onClick={() => props.deleteSearch(id)}>Delete</Button>
 				</div>
 			))}
 		</React.Fragment>
