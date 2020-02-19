@@ -162,10 +162,13 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleRegisterChange}
 							/>
 						</Form.Group>
-						<Form.Checkbox
-							label='I agree to, in there lack of, the terms and conditions'
-							required
-						/>
+						<Form.Group>
+							<Form.Checkbox
+								label='I agree to, and in there lack of, the terms and conditions that apply'
+								required
+							/>
+							<a href="https://github.com/OAmara/react-estate/blob/master/TERMS_CONDITIONS.md">terms & conditions</a>
+						</Form.Group>
 					<Button color={'teal'} type="Submit">Register</Button>
 					</Form>
 				</div>
