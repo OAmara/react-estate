@@ -82,8 +82,9 @@ export default class LoginRegisterForm extends Component {
 								/>
 							</Form.Field>
 						</Form.Group>
-						<Button color={'teal'} type="Submit">Login</Button>
+						<Button color={'google plus'} type="Submit">Login</Button>
 					</Form>
+					<Label color={'yellow'}>{this.props.loginRegisterFormMessage}</Label>
 					<Form className="Register" onSubmit={this.handleRegisterSubmit}>
 						<Form.Group widths='equal'>
 							<Form.Input
@@ -169,7 +170,7 @@ export default class LoginRegisterForm extends Component {
 							/>
 							<a target="_blank" rel="noopener noreferrer" href="https://github.com/OAmara/react-estate/blob/master/TERMS_CONDITIONS.md">terms & conditions</a>
 						</Form.Group>
-					<Button color={'teal'} type="Submit">Register</Button>
+					<Button color={'google plus'} type="Submit">Register</Button>
 					</Form>
 				</div>
 			</React.Fragment>

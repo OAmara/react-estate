@@ -11,6 +11,7 @@ export default class App extends Component {
       loggedIn: false,
       loggedInUser: {
       },
+      loginRegisterFormMessage: 'Please Login above or Register for a new account below',
     }
   }
 
@@ -70,7 +71,29 @@ export default class App extends Component {
         console.error(err);
       }
     }
+  }
 
+  logout = async () => {
+      const apiUrl = process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/users/logout'
+
+      try {
+        const logoutResponse = await fetch(apiUrl, {
+          credentials: 'include'
+        })
+        const logoutJson = await logoutResponse.json()
+
+        if(logoutResponse.status === 200) {
+          this.setState({
+            loggedIn: false,
+            loggedInUser: null,
+            loginRegisterFormMessage: 'Successfully logged out of account'
+          })
+        }
+      } catch(err) {
+          if(err) {
+            console.error(err)
+          }
+      }
   }
 
   render() {
@@ -78,13 +101,14 @@ export default class App extends Component {
     return (
       <div className="App">
         {
-          this.state.LoggedIn
+          this.state.loggedIn
           ?
-          <SearchContainer />
+          <SearchContainer logout={this.logout}/>
           :
           <LoginRegisterForm 
             login={this.login}
             register={this.register}
+            loginRegisterFormMessage={this.state.loginRegisterFormMessage}
           />
          }
       </div>
