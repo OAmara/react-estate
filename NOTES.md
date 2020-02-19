@@ -2,9 +2,11 @@
 
 ***	Search for keyword: 'development' for notes, before deploying
 
+*	Header from SearchContianer, use semantic or flexbox to stretch or space header/buttons to 100% width
+
 *	Create:	NewSearchForm, EditSearchModel/Form, (show search component)
 
-*	In index route, place button over Search containe to optionally delete Search, also pass props into the container show page for option to delete.
+*	In index route, place button over Individual Search container to optionally delete Search without showing, also pass props into the container show page for option to delete.
 
 
 

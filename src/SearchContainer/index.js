@@ -39,9 +39,11 @@ export default class SearchContainer extends Component {
 				<header>
 					<img className="MainLogo" alt="Estate Logo" src={this.props.mainLogo} />
 					<Button color={'youtube'} onClick={null}>Account</Button>
+					<Button color={'youtube'} onClick={null}>Listings</Button>
+					<Button color={'youtube'} onClick={null}>Saved Search</Button>
 					<Button color={'youtube'} onClick={null}>Search</Button>
 					<Button color={'youtube'} onClick={null}>About Us</Button>
-					<Button color={'youtube'} onClick={null}>Learn</Button>
+					<Button color={'youtube'} onClick={null}>Career/Learn</Button>
 					<Button color={'youtube'} onClick={this.props.logout}>Logout</Button>
 				</header>
 				<h2>SearchContainer</h2>

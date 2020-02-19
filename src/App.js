@@ -13,7 +13,7 @@ export default class App extends Component {
     this.state = {
       // mainLogo .png image, App/logo css in AppCss.
       mainLogo: mainLogo,
-      loggedIn: false, // development: true for testing, change back to false
+      loggedIn: true, // development: true for testing, change back to false
       loggedInUser: {
       },
       loginRegisterMessage: {
@@ -95,7 +95,7 @@ export default class App extends Component {
             loggedIn: false,
             loggedInUser: null,
             loginRegisterMessage: {
-              message: 'Successfully logged out of account',
+              message: "You've successfully logged out of your account. See you again soon!",
               color: 'orange',
             },
           })

@@ -82,7 +82,7 @@ export default class LoginRegisterForm extends Component {
 							</Form.Field>
 						</Form.Group>
 						<Button color={'google plus'} type="Submit">Login</Button>
-					<Label color={this.props.loginRegisterMessage.color}>{this.props.loginRegisterMessage.message}</Label>
+					<Label circular={true} pointing={'below'} size={'large'} color={this.props.loginRegisterMessage.color}>{this.props.loginRegisterMessage.message}</Label>
 					</Form>
 					{
 						// classNames will inheret from parent, given it utilizes same name. Logo inherits css as long as it's class is named 'MainLogo'.
@@ -91,6 +91,7 @@ export default class LoginRegisterForm extends Component {
 					<Form className="Register" onSubmit={this.handleRegisterSubmit}>
 						<Form.Group widths='equal'>
 							<Form.Input
+								size={'small'}
 								label='Email:'
 								required
 								type="email"
@@ -98,8 +99,10 @@ export default class LoginRegisterForm extends Component {
 								placeholder='Enter Email'
 								value={this.state.email}
 								onChange={this.handleRegisterChange}
+								// error
 							/>
 							<Form.Input
+								size={'small'}
 								label='Username:'
 								required
 								type="text"
@@ -109,6 +112,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleRegisterChange}
 							/>
 							<Form.Input
+								size={'small'}
 								label='Password:'
 								required
 								type="password"
@@ -120,6 +124,7 @@ export default class LoginRegisterForm extends Component {
 						</Form.Group>
 						<Form.Group widths='equal'>
 							<Form.Input
+								size={'small'}
 								label='First Name:'
 								required
 								type="text"
@@ -129,6 +134,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleRegisterChange}
 							/>
 							<Form.Input
+								size={'small'}
 								label='Last Name:'
 								required
 								type="text"
@@ -138,6 +144,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleRegisterChange}
 							/>
 							<Form.Input
+								size={'small'}
 								label='Hometown:'
 								type="text"
 								name="hometown"
@@ -148,6 +155,7 @@ export default class LoginRegisterForm extends Component {
 						</Form.Group>
 						<Form.Group widths='equal'>
 							<Form.Input
+								size={'mini'}
 								label='Account Recovery Question:'
 								required
 								type="text"
@@ -157,6 +165,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleRegisterChange}
 							/>
 							<Form.Input
+								size={'mini'}
 								label='Account Recovery Answer:'
 								required
 								type="text"
