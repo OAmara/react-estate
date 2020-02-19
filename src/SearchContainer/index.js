@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
+import SearchList from '../SearchList'
 
 export default class SearchContainer extends Component {
 	constructor(props) {
@@ -34,8 +35,9 @@ export default class SearchContainer extends Component {
 	render() {
 		return(
 			<React.Fragment>
-				<h2>SearchContainer</h2>
 				<Button color={'youtube'} onClick={this.props.logout}>Logout</Button>
+				<h2>SearchContainer</h2>
+				<SearchList searches={this.state.searches}/>
 			</React.Fragment>
 		)
 	}
