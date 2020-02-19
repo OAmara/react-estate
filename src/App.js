@@ -11,7 +11,10 @@ export default class App extends Component {
       loggedIn: false,
       loggedInUser: {
       },
-      loginRegisterFormMessage: 'Please Login above or Register for a new account below',
+      loginRegisterMessage: {
+        message: 'Please Login or Register new account below',
+        color: 'grey',
+      },
     }
   }
 
@@ -80,13 +83,16 @@ export default class App extends Component {
         const logoutResponse = await fetch(apiUrl, {
           credentials: 'include'
         })
-        const logoutJson = await logoutResponse.json()
+        /*const logoutJson =*/ await logoutResponse.json()
 
         if(logoutResponse.status === 200) {
           this.setState({
             loggedIn: false,
             loggedInUser: null,
-            loginRegisterFormMessage: 'Successfully logged out of account'
+            loginRegisterMessage: {
+              message: 'Successfully logged out of account',
+              color: 'orange',
+            },
           })
         }
       } catch(err) {
@@ -108,7 +114,7 @@ export default class App extends Component {
           <LoginRegisterForm 
             login={this.login}
             register={this.register}
-            loginRegisterFormMessage={this.state.loginRegisterFormMessage}
+            loginRegisterMessage={this.state.loginRegisterMessage}
           />
          }
       </div>

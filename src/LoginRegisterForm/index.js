@@ -83,8 +83,8 @@ export default class LoginRegisterForm extends Component {
 							</Form.Field>
 						</Form.Group>
 						<Button color={'google plus'} type="Submit">Login</Button>
+					<Label color={this.props.loginRegisterMessage.color}>{this.props.loginRegisterMessage.message}</Label>
 					</Form>
-					<Label color={'yellow'}>{this.props.loginRegisterFormMessage}</Label>
 					<Form className="Register" onSubmit={this.handleRegisterSubmit}>
 						<Form.Group widths='equal'>
 							<Form.Input
