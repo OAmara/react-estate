@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Form, Label, Input, Button } from 'semantic-ui-react'
 import './index.css'
 
-
 export default class LoginRegisterForm extends Component {
 
 	constructor(props) {
@@ -85,6 +84,10 @@ export default class LoginRegisterForm extends Component {
 						<Button color={'google plus'} type="Submit">Login</Button>
 					<Label color={this.props.loginRegisterMessage.color}>{this.props.loginRegisterMessage.message}</Label>
 					</Form>
+					{
+						// classNames will inheret from parent, given it utilizes same name. Logo inherits css as long as it's class is named 'MainLogo'.
+					}
+					<img className="MainLogo LoginLogo" alt="Estate Logo" src={this.props.mainLogo} />
 					<Form className="Register" onSubmit={this.handleRegisterSubmit}>
 						<Form.Group widths='equal'>
 							<Form.Input

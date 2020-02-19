@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
 import LoginRegisterForm from './LoginRegisterForm'
 import SearchContainer from './SearchContainer'
+import './App.css'
+// import 'Estate-temp-logo.png' from './public'
+// Main Logo source file
+const mainLogo = require('./lib/tempMainLogo.png');
 
 export default class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      loggedIn: false,
+      // mainLogo .png image, App/logo css in AppCss.
+      mainLogo: mainLogo,
+      loggedIn: false, // development: true for testing, change back to false
       loggedInUser: {
       },
       loginRegisterMessage: {
@@ -29,7 +34,7 @@ export default class App extends Component {
         body: JSON.stringify(registerFormInfo),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
       })
 
       const registerJson = await registerResponse.json()
@@ -38,7 +43,7 @@ export default class App extends Component {
         this.setState({
           loggedIn: true,
           // for UI purposes, such as a greeting
-          loggedInUser: registerJson.data
+          loggedInUser: registerJson.data,
         })
       }
     } catch(err) {
@@ -58,7 +63,7 @@ export default class App extends Component {
         body: JSON.stringify(loginFormInfo),
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
       })
 
       const loginJson = await loginResponse.json()
@@ -66,7 +71,7 @@ export default class App extends Component {
       if(loginResponse.status === 200) {
         this.setState({
           loggedIn: true,
-          loggedInUser: loginJson.data
+          loggedInUser: loginJson.data,
         })
       }
     } catch(err) {
@@ -109,9 +114,13 @@ export default class App extends Component {
         {
           this.state.loggedIn
           ?
-          <SearchContainer logout={this.logout}/>
+          <SearchContainer 
+            mainLogo={this.state.mainLogo}
+            logout={this.logout}
+            />
           :
           <LoginRegisterForm 
+            mainLogo={this.state.mainLogo}
             login={this.login}
             register={this.register}
             loginRegisterMessage={this.state.loginRegisterMessage}
