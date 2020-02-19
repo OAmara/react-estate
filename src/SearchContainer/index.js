@@ -58,6 +58,26 @@ export default class SearchContainer extends Component {
 		}
 	}
 
+	deleteSearch = async (id) => {
+		try {
+			const deleteSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches' + id, {
+				credentials: 'include',
+				method: 'DELETE',
+			})
+			const deleteSearchJson = await deleteSearchResponse.json();
+
+			if(deleteSearchJson.status === 200) {
+				this.setState({
+					// delete specific search index from search array in state.
+				})
+			} else {
+				throw new Error('Could not Delete Account')
+			}
+		}	catch(err) {
+			console.error(err)
+		}
+	}
+
 	render() {
 		return(
 			<React.Fragment>

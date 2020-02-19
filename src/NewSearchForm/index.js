@@ -24,12 +24,10 @@ export default class NewSearchForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()	
-		console.log('handling Submit');
 		this.liftNewSearch()
 	}
 
 	liftNewSearch = () => {
-		console.log('createNewSearch triggered! Insert your props');
 		this.props.createSearch(this.state.newSearch)
 		this.setState({
 			newSearch: {
@@ -42,6 +40,7 @@ export default class NewSearchForm extends Component {
 			<Form className="NewFormModal" onSubmit={this.handleSubmit}>
 				<Form.Group widths='equal'>
 					<Form.Input
+						// Form.Input size: 'mini' - 'massive'
 						size={'large'}
 						label='Name:'
 						required

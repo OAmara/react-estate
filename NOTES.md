@@ -8,6 +8,8 @@
 
 *	In index route, place button over Individual Search container to optionally delete Search without showing, also pass props into the container show page for option to delete.
 
+**	Start utilizing status code from fetch results to change css through props between containers. i.e. how logout is currently utilizing same behavior to change message displayed and css properties in login.
+^^^^^^^^^ Instead of utilizing status codes, maybe throw new Errors like in deleteSearch in SearchContainer to customize errors while also having a place for this logic to be set.
 
 
 
