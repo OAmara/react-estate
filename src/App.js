@@ -44,8 +44,33 @@ export default class App extends Component {
     }
   }
 
-  login = async () => {
-      console.log('login function in App.js');
+  login = async (loginFormInfo) => {
+    const apiUrl = process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/users/login'
+
+    try {
+      const loginResponse = await fetch(apiUrl, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(loginFormInfo),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const loginJson = await loginResponse.json()
+
+      if(loginResponse.status === 200) {
+        this.setState({
+          loggedIn: true,
+          loggedInUser: loginJson.data
+        })
+      }
+    } catch(err) {
+      if(err) {
+        console.error(err);
+      }
+    }
+
   }
 
   render() {

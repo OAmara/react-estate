@@ -49,9 +49,8 @@ export default class LoginRegisterForm extends Component {
   		this.props.register(this.state.registeredUser)
   	}
 
-  	login = () => {
-  		console.log('hit login in LoginRegisterForm, this will connect to login fetch in App.js');	
-  		this.props.login()
+  	login = () => {	
+  		this.props.login(this.state.loggedInUser)
   	}
 
 	render() {
