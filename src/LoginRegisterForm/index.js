@@ -167,7 +167,7 @@ export default class LoginRegisterForm extends Component {
 								label='I agree to, and in there lack of, the terms and conditions that apply'
 								required
 							/>
-							<a href="https://github.com/OAmara/react-estate/blob/master/TERMS_CONDITIONS.md">terms & conditions</a>
+							<a target="_blank" rel="noopener noreferrer" href="https://github.com/OAmara/react-estate/blob/master/TERMS_CONDITIONS.md">terms & conditions</a>
 						</Form.Group>
 					<Button color={'teal'} type="Submit">Register</Button>
 					</Form>

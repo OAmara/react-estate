@@ -1,3 +1,3 @@
 for terms & conditions please visit: 
 
-[terms & conditions](omaramara.com)
+[terms & conditions](www.omaramara.com)
