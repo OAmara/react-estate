@@ -6,8 +6,20 @@ export default class NewSearchForm extends Component {
 		super(props)
 
 		this.state = {
-
+			newSearch: {
+			}
 		}
+	}
+
+	// Allows change and recording of input fields.
+	handleChange = (e) => {
+		this.setState({
+			newSearch: {
+				// this prevents us from having to manually enter each input field in state.
+				...this.state.newSearch,
+				[e.target.name]: e.target.value
+			}
+		})	
 	}
 
 	render() {
