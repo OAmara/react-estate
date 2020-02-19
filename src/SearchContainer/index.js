@@ -47,7 +47,7 @@ export default class SearchContainer extends Component {
 			})
 			const createSearchJson = await createSearchResponse.json()
 
-			if(createAccountResponse.status === 201) {
+			if(createSearchResponse.status === 201) {
 				this.setState({
 					// spread operator to minimize fetch calls and insert data into existing search array
 					searches: [...this.state.searches, createSearchJson.data]
@@ -73,7 +73,7 @@ export default class SearchContainer extends Component {
 				</header>
 				<h2>SearchContainer</h2>
 				<SearchList searches={this.state.searches}/>
-				<NewSearchForm />
+				<NewSearchForm createSearch={this.createSearch} />
 			</React.Fragment>
 		)
 	}

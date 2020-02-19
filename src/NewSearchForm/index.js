@@ -30,7 +30,7 @@ export default class NewSearchForm extends Component {
 
 	liftNewSearch = () => {
 		console.log('createNewSearch triggered! Insert your props');
-		console.log(this.state.newSearch);
+		this.props.createSearch(this.state.newSearch)
 		this.setState({
 			newSearch: {
 			}
