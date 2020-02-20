@@ -8,14 +8,14 @@ body {
 
 .MainLogo {
 	/*display: inline-block;*/
-	height: 5.5em;
-	width: 5.5em;
+	height: 6em;
+	width: 6em;
 }
 
 .LoginLogo {
-	height: 12em;
-	width: 12em;
+	height: 15em;
+	width: 15em;
 	position: relative;
 	left: 45%;
-	margin: 5% 0;
+	margin: 2% 0;
 }

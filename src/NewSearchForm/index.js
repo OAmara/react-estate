@@ -106,7 +106,7 @@ export default class NewSearchForm extends Component {
 							/>
 						</Form.Group>
 						<Modal.Actions>
-							<Button inverted color={'google plus'} size={'big'} type="Submit" >Save Search</Button>
+							<Button inverted color={'google plus'} size={'big'} type="Submit">Save Search</Button>
 						</Modal.Actions>
 					</Form>
 				</Modal.Content>

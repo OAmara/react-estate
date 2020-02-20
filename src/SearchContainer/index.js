@@ -51,6 +51,9 @@ export default class SearchContainer extends Component {
 			})
 			const createSearchJson = await createSearchResponse.json()
 
+			// close Form Modal when submitted and promise resolved.
+			this.setState({ openNewModal: false })
+
 			if(createSearchResponse.status === 201) {
 				this.setState({
 					// spread operator to minimize fetch calls and insert data into existing search array
