@@ -124,6 +124,8 @@ export default class SearchContainer extends Component {
 		// const removeClient = searchToEdit.pop('client')
 		this.setState({
 			openEditModal: true,
+			// spread operator not used, was sending client info over, producing an error upon submission.
+			// In order to use spread operator here, need to remove client variable in searchToEdit before submit to updateSearcg fetch
 			searchToEdit: {
 				// ...searchToEdit
 				id: searchToEdit.id,
@@ -131,7 +133,7 @@ export default class SearchContainer extends Component {
 				name: searchToEdit.name,
 				sqrft: searchToEdit.sqrft,
 				upperprice: searchToEdit.upperprice,
-				zipcode: searchToEdit.zipcode
+				zipcode: searchToEdit.zipcode,
 			}
 		})
 	}

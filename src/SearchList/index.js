@@ -15,7 +15,7 @@ export default function SearchList(props) {
 					{
 						// development: This or similar button will display amount of listings generated from search. Each listing will have a boolean fro viewed or not?
 					}
-					<Button size={'massive'} floated={'right'} inverted color={'blue'} onClick={null}>⌝</Button>
+					<Button size={'massive'} floated={'right'} inverted color={'red'} onClick={null}>⌝</Button>
 					<h2>{name}</h2>
 					<h3>Zipcode: {zipcode}</h3>
 					<h4>Price Range: {lowerprice} - {upperprice}</h4>
