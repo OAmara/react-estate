@@ -121,10 +121,17 @@ export default class SearchContainer extends Component {
 	// finds search to edit and fills searchToEdit state with information that is sent to EditFormModal.
 	editSearch = (searchToEditId) => {
 		const searchToEdit = this.state.searches.find((search) => search.id === searchToEditId)
+		// const removeClient = searchToEdit.pop('client')
 		this.setState({
 			openEditModal: true,
 			searchToEdit: {
-				...searchToEdit
+				// ...searchToEdit
+				id: searchToEdit.id,
+				lowerprice: searchToEdit.lowerprice,
+				name: searchToEdit.name,
+				sqrft: searchToEdit.sqrft,
+				upperprice: searchToEdit.upperprice,
+				zipcode: searchToEdit.zipcode
 			}
 		})
 	}
@@ -148,14 +155,17 @@ export default class SearchContainer extends Component {
 
 	updateSearch = async () => {
 		console.log('this.state.searchToEdit: ', this.state.searchToEdit);
+		console.log('this.state.searchToEdit.id: ', this.state.searchToEdit.id)
 		try {
-			const updateSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/' + this.state.searchToEdit.id, {
-				method: 'PUT',
-				body: JSON.stringify(this.state.searchToEdit),
-				credentials: 'include',
-				headers: {
-					'Content-Type': 'application/json'
-				},
+			const updateSearchResponse = await fetch(
+				process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/' + this.state.searchToEdit.id, 
+				{
+					credentials: 'include',
+					method: 'PUT',
+					body: JSON.stringify(this.state.searchToEdit),
+					headers: {
+						'Content-Type': 'application/json'
+					}
 			})
 			console.log('updateSearchResponse: ', updateSearchResponse)
 			const updateSearchJson = await updateSearchResponse.json()
