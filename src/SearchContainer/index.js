@@ -30,7 +30,7 @@ export default class SearchContainer extends Component {
 				credentials: 'include' // reminder: cookie sent to api per fetch
 			})
 			const searchesJson = await searchesResponse.json()
-			console.log('this is searchesJson for search index: ', searchesJson.data);
+
 			this.setState({
 				searches: searchesJson.data
 			})
@@ -146,7 +146,8 @@ export default class SearchContainer extends Component {
 		this.updateSearch()
 	}
 
-	updateSearch = async () => {	
+	updateSearch = async () => {
+		console.log('this.state.searchToEdit: ', this.state.searchToEdit);
 		try {
 			const updateSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/' + this.state.searchToEdit.id, {
 				method: 'PUT',
@@ -156,8 +157,9 @@ export default class SearchContainer extends Component {
 					'Content-Type': 'application/json'
 				},
 			})
+			console.log('updateSearchResponse: ', updateSearchResponse)
 			const updateSearchJson = await updateSearchResponse.json()
-
+			console.log('updateSearchJson: ', updateSearchJson)
 
 			if(updateSearchResponse.status === 200) {
 				// this adds updated Search into array and removes old Search.
@@ -183,7 +185,6 @@ export default class SearchContainer extends Component {
 	}
 
 	render() {
-		console.log(this.state.searchToEdit);
 		return(
 			<React.Fragment>
 				<header>
