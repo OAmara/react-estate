@@ -13,7 +13,7 @@ export default class App extends Component {
     this.state = {
       // mainLogo .png image, App/logo css in AppCss.
       mainLogo: mainLogo,
-      loggedIn: true, // development: true for testing, change back to false
+      loggedIn: false, // development: true for testing, change back to false
       loggedInUser: {
       },
       loginRegisterMessage: {

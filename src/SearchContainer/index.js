@@ -146,12 +146,38 @@ export default class SearchContainer extends Component {
 		this.updateSearch()
 	}
 
-	updateSearch = async () => {
-		console.log('updateSearch func called from EditFormModal!');
-		console.log('This is the searchToEdit props provided by EditFormModal: ', this.state.searchToEdit);	
+	updateSearch = async () => {	
+		try {
+			const updateSearchResponse = await fetch(process.env.REACT_APP_FLASK_API_URL + '/api/v1.0/searches/' + this.state.searchToEdit.id, {
+				method: 'PUT',
+				body: JSON.stringify(this.state.searchToEdit),
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+			})
+			const updateSearchJson = await updateSearchResponse.json()
 
-		/// somewhere in a try{} far far away after an awaited time:
-		// close EditFormModal when submitted after promise is resolved.
+
+			if(updateSearchResponse.status === 200) {
+				// this adds updated Search into array and removes old Search.
+				// Reason: prevents running another fetch call, saves time and data
+				const updatedSearchesArray = this.state.searches.map((search) => {
+					if(search.id === updateSearchJson.data.id) {
+						return updateSearchJson.data
+					} else {
+						return search
+					}
+				})
+
+				this.setState({
+					searches: updatedSearchesArray
+				})
+			}
+		} catch(err) {
+			console.error(err)
+		}
+		// close EditFormModal when submitted after promise is resolved and searches array is updated.
 		// This prevents information in state from deleting before info can be used to edit search
 		this.closeEditModal()
 	}
