@@ -52,7 +52,7 @@ export default class EditSearchModal extends Component {
 								type="text"
 								name="name"
 								placeholder='My Dream Home'
-								value={this.state.name}
+								value={this.props.searchToEdit.name}
 								onChange={this.handleChange}
 							/>
 						</Form.Group>
@@ -64,7 +64,7 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="zipcode"
 								placeholder='Enter Zipcode'
-								value={this.state.zipcode}
+								value={this.props.searchToEdit.zipcode}
 								onChange={this.handleChange}
 								// error
 							/>
@@ -79,7 +79,7 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="sqrft"
 								placeholder='Square Footage'
-								value={this.state.sqrft}
+								value={this.props.searchToEdit.sqrft}
 								onChange={this.handleChange}
 							/>
 						</Form.Group>
@@ -94,7 +94,7 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="upperprice"
 								placeholder='0'
-								value={this.state.upperprice}
+								value={this.props.searchToEdit.upperprice}
 								onChange={this.handleChange}
 							/>
 							<Form.Input
@@ -103,7 +103,7 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="lowerprice"
 								placeholder='0'
-								value={this.state.lowerprice}
+								value={this.props.searchToEdit.lowerprice}
 								onChange={this.handleChange}
 							/>
 						</Form.Group>

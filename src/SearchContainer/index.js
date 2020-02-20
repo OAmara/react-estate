@@ -132,7 +132,8 @@ export default class SearchContainer extends Component {
 	updateSearch = async(newSearchInfo) => {
 
 		/// somewhere in a try{} far far away after an awaited time:
-		// This prevents information in state from deleting before info can be used to create search
+		// close EditFormModal when submitted after promise is resolved.
+		// This prevents information in state from deleting before info can be used to edit search
 		this.closeEditModal()
 		console.log('updateSearch func called from EditFormModal!');
 		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
@@ -168,6 +169,7 @@ export default class SearchContainer extends Component {
 					openEditModal={this.state.openEditModal}
 					closeEditModal={this.closeEditModal}
 					updateSearch={this.updateSearch}
+					searchToEdit={this.state.searchToEdit}
 				/>
 			</React.Fragment>
 		)
