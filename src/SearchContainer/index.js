@@ -9,8 +9,12 @@ export default class SearchContainer extends Component {
 		super(props)
 		this.state = {
 			searches: [],
+			// determines if NewSearchForm Modal Component opens or closes.
+			openNewModal: false,
+			openEditModal: false,
+			searchToEdit: {
+			},
 			// editForm,
-			// searchToEdit,
 		}
 	}
 
@@ -79,6 +83,26 @@ export default class SearchContainer extends Component {
 		}
 	}
 
+	// changes state to open NewSearchForm Modal.
+	openNewSearchFormModal = () => {
+		this.setState({
+			openNewModal: true
+		})	
+	}
+
+	// changes state to falso to close NewSearchForm modal.
+	closeNewModal = () => {
+		this.setState({
+			openNewModal: false
+		})	
+	}
+
+	// finds search to edit and fills searchToEdit state with information.
+	editSearch = (searchToEditId) => {
+		console.log('editSearch id of search: ', searchToEditId);	
+
+	}
+
 	render() {
 		return(
 			<React.Fragment>
@@ -86,18 +110,22 @@ export default class SearchContainer extends Component {
 					<img className="MainLogo" alt="Estate Logo" src={this.props.mainLogo} />
 					<Button color={'youtube'} onClick={null}>Account</Button>
 					<Button color={'youtube'} onClick={null}>Listings</Button>
-					<Button color={'youtube'} onClick={null}>Saved Search</Button>
-					<Button color={'youtube'} onClick={null}>Search</Button>
+					<Button color={'youtube'} onClick={null}>Saved Searches</Button>
+					<Button color={'youtube'} onClick={this.openNewSearchFormModal}>New Search</Button>
 					<Button color={'youtube'} onClick={null}>About Us</Button>
 					<Button color={'youtube'} onClick={null}>Career/Learn</Button>
 					<Button inverted color={'youtube'} onClick={this.props.logout}>Logout</Button>
 				</header>
-				<h2>SearchContainer</h2>
 				<SearchList 
 					searches={this.state.searches}
 					deleteSearch={this.deleteSearch}
+					openNewSearchFormModal={this.openNewSearchFormModal}
 				/>
-				<NewSearchForm createSearch={this.createSearch} />
+				<NewSearchForm 
+					createSearch={this.createSearch} 
+					openNewModal={this.state.openNewModal}
+					closeNewModal={this.closeNewModal}
+				/>
 			</React.Fragment>
 		)
 	}
