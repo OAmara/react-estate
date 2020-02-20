@@ -7,6 +7,7 @@ export default class EditSearchModal extends Component {
 
 		this.state = {
 			editSearch: {
+
 			}
 		}
 	}
@@ -34,10 +35,20 @@ export default class EditSearchModal extends Component {
 		// 	}
 		// })
 		console.log('Lifting State here in liftEditSearch');
+		console.log('this.state.editSearch being lifted: ', this.state.editSearch);
 		this.props.updateSearch(this.state.editSearch)
 	}
 
+	componentWillMount() {
+		this.setState({
+			editSearch: 
+				this.props.searchToEdit
+			
+		})
+	}
+
 	render() {
+		console.log(this.state.editSearch);
 		return(
 			<Modal open={this.props.openEditModal} closeIcon={true} onClose={this.props.closeEditModal} >
 				<Header>Save a New Search Paramater to Store Generated Listings</Header>
@@ -52,7 +63,7 @@ export default class EditSearchModal extends Component {
 								type="text"
 								name="name"
 								placeholder='My Dream Home'
-								value={this.props.searchToEdit.name}
+								value={this.state.editSearch.name}
 								onChange={this.handleChange}
 							/>
 						</Form.Group>
