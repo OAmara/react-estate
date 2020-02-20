@@ -143,12 +143,12 @@ export default class SearchContainer extends Component {
 	// seperation of concerns, upon EditFormModal submit, calls updateSearch
 	handleSubmitEditForm = (e) => {
 		e.preventDefault()	
-		this.updateAccount()
+		this.updateSearch()
 	}
 
-	updateSearch = async(newSearchInfo) => {
+	updateSearch = async () => {
 		console.log('updateSearch func called from EditFormModal!');
-		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
+		console.log('This is the searchToEdit props provided by EditFormModal: ', this.state.searchToEdit);	
 
 		/// somewhere in a try{} far far away after an awaited time:
 		// close EditFormModal when submitted after promise is resolved.

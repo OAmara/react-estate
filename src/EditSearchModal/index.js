@@ -1,17 +1,13 @@
-import React,{ Component } from 'react'
+import React from 'react'
 import { Form, Button, Header, Modal} from 'semantic-ui-react'
 
-export default class EditSearchModal extends Component {
-	constructor(props) {
-		super(props)
-	}
+export default function EditSearchModal(props) {
 
-	render() {
 		return(
-			<Modal open={this.props.openEditModal} closeIcon={true} onClose={this.props.closeEditModal} >
+			<Modal open={props.openEditModal} closeIcon={true} onClose={props.closeEditModal} >
 				<Header>Save a New Search Paramater to Store Generated Listings</Header>
 				<Modal.Content>
-					<Form className="NewFormModal" onSubmit={this.props.handleSubmitEditForm}>
+					<Form className="EditFormModal" onSubmit={props.handleSubmitEditForm}>
 						<Form.Group widths='equal'>
 							<Form.Input
 								// Form.Input size: 'mini' - 'massive'
@@ -21,8 +17,8 @@ export default class EditSearchModal extends Component {
 								type="text"
 								name="name"
 								placeholder='My Dream Home'
-								value={this.props.searchToEdit.name}
-								onChange={this.props.handleEditChange}
+								value={props.searchToEdit.name}
+								onChange={props.handleEditChange}
 							/>
 						</Form.Group>
 						<Form.Group>
@@ -33,8 +29,8 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="zipcode"
 								placeholder='Enter Zipcode'
-								value={this.props.searchToEdit.zipcode}
-								onChange={this.props.handleEditChange}
+								value={props.searchToEdit.zipcode}
+								onChange={props.handleEditChange}
 								// error
 							/>
 						</Form.Group>
@@ -48,8 +44,8 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="sqrft"
 								placeholder='Square Footage'
-								value={this.props.searchToEdit.sqrft}
-								onChange={this.props.handleEditChange}
+								value={props.searchToEdit.sqrft}
+								onChange={props.handleEditChange}
 							/>
 						</Form.Group>
 						{
@@ -63,8 +59,8 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="upperprice"
 								placeholder='0'
-								value={this.props.searchToEdit.upperprice}
-								onChange={this.props.handleEditChange}
+								value={props.searchToEdit.upperprice}
+								onChange={props.handleEditChange}
 							/>
 							<Form.Input
 								size={'small'}
@@ -72,8 +68,8 @@ export default class EditSearchModal extends Component {
 								type="number"
 								name="lowerprice"
 								placeholder='0'
-								value={this.props.searchToEdit.lowerprice}
-								onChange={this.props.handleEditChange}
+								value={props.searchToEdit.lowerprice}
+								onChange={props.handleEditChange}
 							/>
 						</Form.Group>
 						<Modal.Actions>
@@ -83,5 +79,4 @@ export default class EditSearchModal extends Component {
 				</Modal.Content>
 			</Modal>
 		)
-	}
 }
