@@ -53,7 +53,7 @@ export default class SearchContainer extends Component {
 			const createSearchJson = await createSearchResponse.json()
 
 			// close Form Modal when submitted and promise resolved.
-			this.setState({ openNewModal: false })
+			this.closeNewModal()
 
 			if(createSearchResponse.status === 201) {
 				this.setState({
@@ -115,10 +115,23 @@ export default class SearchContainer extends Component {
 		})
 	}
 
-	// finds search to edit and fills searchToEdit state with information.
+	// finds search to edit and fills searchToEdit state with information that is sent to EditFormModal.
 	editSearch = (searchToEditId) => {
-		console.log('editSearch id of search: ', searchToEditId);	
-		// belongs in EditSearchModal??? SHould only state being lifted is the eidted Search?
+		const searchToEdit = this.state.searches.find((search) => search.id === searchToEditId)
+		this.setState({
+			openEditModal: true,
+			searchToEdit: {
+				...searchToEdit
+			}
+		})
+	}
+
+	updateSearch = async(newSearchInfo) => {
+
+		/// somewhere in a try{} far far away after an awaited time:
+		this.closeEditModal()
+		console.log('updateSearch func called from EditFormModal!');
+		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
 	}
 
 	render() {
@@ -150,6 +163,7 @@ export default class SearchContainer extends Component {
 					editSearch={this.editSearch}
 					openEditModal={this.state.openEditModal}
 					closeEditModal={this.closeEditModal}
+					updateSearch={this.updateSearch}
 				/>
 			</React.Fragment>
 		)

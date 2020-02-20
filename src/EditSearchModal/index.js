@@ -34,6 +34,7 @@ export default class EditSearchModal extends Component {
 		// 	}
 		// })
 		console.log('Lifting State here in liftEditSearch');
+		this.props.updateSearch(this.state.editSearch)
 	}
 
 	render() {
