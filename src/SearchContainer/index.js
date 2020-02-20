@@ -129,6 +129,17 @@ export default class SearchContainer extends Component {
 		})
 	}
 
+		// Allows change and recording of input fields.
+	handleEditChange = (e) => {
+		this.setState({
+			searchToEdit: {
+				// this prevents us from having to manually enter each input field in state.
+				...this.state.searchToEdit,
+				[e.target.name]: e.target.value
+			}
+		})	
+	}
+
 	updateSearch = async(newSearchInfo) => {
 		console.log('updateSearch func called from EditFormModal!');
 		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
@@ -170,6 +181,7 @@ export default class SearchContainer extends Component {
 					closeEditModal={this.closeEditModal}
 					updateSearch={this.updateSearch}
 					searchToEdit={this.state.searchToEdit}
+					handleEditChange={this.handleEditChange}
 				/>
 			</React.Fragment>
 		)
