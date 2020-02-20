@@ -53,6 +53,7 @@ export default class SearchContainer extends Component {
 			const createSearchJson = await createSearchResponse.json()
 
 			// close Form Modal when submitted and promise resolved.
+			// This prevents information in state from deleting before info can be used to create search
 			this.closeNewModal()
 
 			if(createSearchResponse.status === 201) {
@@ -111,7 +112,9 @@ export default class SearchContainer extends Component {
 	// changes state to close EditSearchModal
 	closeEditModal = () => {
 		this.setState({
-			openEditModal: false
+			openEditModal: false,
+			searchToEdit: {
+			}
 		})
 	}
 
@@ -129,13 +132,14 @@ export default class SearchContainer extends Component {
 	updateSearch = async(newSearchInfo) => {
 
 		/// somewhere in a try{} far far away after an awaited time:
+		// This prevents information in state from deleting before info can be used to create search
 		this.closeEditModal()
 		console.log('updateSearch func called from EditFormModal!');
 		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
 	}
 
 	render() {
-		console.log(this.state.openEditModal);
+		console.log(this.state.searchToEdit);
 		return(
 			<React.Fragment>
 				<header>
@@ -152,7 +156,7 @@ export default class SearchContainer extends Component {
 					searches={this.state.searches}
 					deleteSearch={this.deleteSearch}
 					openNewSearchFormModal={this.openNewSearchFormModal}
-					openEditSearchModal={this.openEditSearchModal}
+					editSearch={this.editSearch}
 				/>
 				<NewSearchForm 
 					createSearch={this.createSearch} 
