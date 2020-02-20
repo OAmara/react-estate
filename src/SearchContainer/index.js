@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import SearchList from '../SearchList'
 import NewSearchForm from '../NewSearchForm'
+import EditSearchModal from '../EditSearchModal'
 import './index.css'
 
 export default class SearchContainer extends Component {
@@ -86,27 +87,42 @@ export default class SearchContainer extends Component {
 		}
 	}
 
-	// changes state to open NewSearchForm Modal.
+	// changes state to open NewSearchForm Modal Component.
 	openNewSearchFormModal = () => {
 		this.setState({
 			openNewModal: true
 		})	
 	}
 
-	// changes state to falso to close NewSearchForm modal.
+	// changes state to close NewSearchForm Modal.
 	closeNewModal = () => {
 		this.setState({
 			openNewModal: false
 		})	
 	}
 
+	// changes state to open EditFormModal Component
+	openEditSearchModal = () => {
+		this.setState({
+			openEditModal: true
+		})	
+	}
+
+	// changes state to close EditSearchModal
+	closeEditModal = () => {
+		this.setState({
+			openEditModal: false
+		})
+	}
+
 	// finds search to edit and fills searchToEdit state with information.
 	editSearch = (searchToEditId) => {
 		console.log('editSearch id of search: ', searchToEditId);	
-
+		// belongs in EditSearchModal??? SHould only state being lifted is the eidted Search?
 	}
 
 	render() {
+		console.log(this.state.openEditModal);
 		return(
 			<React.Fragment>
 				<header>
@@ -123,11 +139,17 @@ export default class SearchContainer extends Component {
 					searches={this.state.searches}
 					deleteSearch={this.deleteSearch}
 					openNewSearchFormModal={this.openNewSearchFormModal}
+					openEditSearchModal={this.openEditSearchModal}
 				/>
 				<NewSearchForm 
 					createSearch={this.createSearch} 
 					openNewModal={this.state.openNewModal}
 					closeNewModal={this.closeNewModal}
+				/>
+				<EditSearchModal
+					editSearch={this.editSearch}
+					openEditModal={this.EditSearchModal}
+					closeEditModal={this.closeEditModal}
 				/>
 			</React.Fragment>
 		)
