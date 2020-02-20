@@ -148,7 +148,7 @@ export default class SearchContainer extends Component {
 				/>
 				<EditSearchModal
 					editSearch={this.editSearch}
-					openEditModal={this.EditSearchModal}
+					openEditModal={this.state.openEditModal}
 					closeEditModal={this.closeEditModal}
 				/>
 			</React.Fragment>
