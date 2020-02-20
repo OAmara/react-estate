@@ -140,6 +140,12 @@ export default class SearchContainer extends Component {
 		})	
 	}
 
+	// seperation of concerns, upon EditFormModal submit, calls updateSearch
+	handleSubmitEditForm = (e) => {
+		e.preventDefault()	
+		this.updateAccount()
+	}
+
 	updateSearch = async(newSearchInfo) => {
 		console.log('updateSearch func called from EditFormModal!');
 		console.log('This is the newSearchInfo props provided by EditFormModal: ', newSearchInfo);	
@@ -182,6 +188,7 @@ export default class SearchContainer extends Component {
 					updateSearch={this.updateSearch}
 					searchToEdit={this.state.searchToEdit}
 					handleEditChange={this.handleEditChange}
+					handleSubmitEditForm={this.handleSubmitEditForm}
 				/>
 			</React.Fragment>
 		)

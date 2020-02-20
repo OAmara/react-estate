@@ -6,23 +6,12 @@ export default class EditSearchModal extends Component {
 		super(props)
 	}
 
-	handleSubmit = (e) => {
-		e.preventDefault()	
-		this.liftEditSearch()
-	}
-
-	liftEditSearch = () => {
-		console.log('Lifting State here in liftEditSearch');
-		console.log('this.state.editSearch being lifted: ', this.state.editSearch);
-		this.props.updateSearch(this.state.editSearch)
-	}
-
 	render() {
 		return(
 			<Modal open={this.props.openEditModal} closeIcon={true} onClose={this.props.closeEditModal} >
 				<Header>Save a New Search Paramater to Store Generated Listings</Header>
 				<Modal.Content>
-					<Form className="NewFormModal" onSubmit={this.handleSubmit}>
+					<Form className="NewFormModal" onSubmit={this.props.handleSubmitEditForm}>
 						<Form.Group widths='equal'>
 							<Form.Input
 								// Form.Input size: 'mini' - 'massive'
